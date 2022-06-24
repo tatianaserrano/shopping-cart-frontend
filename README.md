@@ -22,3 +22,10 @@ npm start
 http://localhost:4200/
 ```
 5. Esta aplicación también se puede ver en el siguiente enlace: 
+
+
+Imágenes:
+![](https://github.com/tatianaserrano/shopping-cart-frontend/blob/main/src/assets/products.png)
+![](https://github.com/tatianaserrano/shopping-cart-frontend/blob/main/src/assets/dropdown.png)
+![](https://github.com/tatianaserrano/shopping-cart-frontend/blob/main/src/assets/congrats.png)
+
