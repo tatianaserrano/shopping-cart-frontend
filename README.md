@@ -27,5 +27,6 @@ http://localhost:4200/
 Imágenes:
 ![](https://github.com/tatianaserrano/shopping-cart-frontend/blob/main/src/assets/products.png)
 ![](https://github.com/tatianaserrano/shopping-cart-frontend/blob/main/src/assets/dropdown.png)
+![](https://github.com/tatianaserrano/shopping-cart-frontend/blob/main/src/assets/modal.png)
 ![](https://github.com/tatianaserrano/shopping-cart-frontend/blob/main/src/assets/congrats.png)
 
