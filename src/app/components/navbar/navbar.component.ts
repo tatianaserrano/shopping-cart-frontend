@@ -39,7 +39,6 @@ export class NavbarComponent implements OnInit {
       const couponsList = await this.couponsService.getCoupons();
       this.coupon = couponsList.find((coupon: any) => coupon.code === this.couponForm.value.coupon);
       this.totalDiscount = this.total * this.coupon.percentage / 100;
-      this.total = this.total - this.totalDiscount
     } catch(error){
       console.log(error);
       //redirect screen error

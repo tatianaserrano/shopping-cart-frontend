@@ -100,7 +100,10 @@
           </form>
           <button type="button" class="btn btn-primary" (click)="applyCoupon()">Aplicar</button>
         </div>
-        <p><strong>TOTAL:</strong> {{ total | number }}</p>
+        <p><strong>Valor compra:</strong> {{ total | number }}</p>
+        <p style="color: red;"><strong>Descuento:</strong> {{ totalDiscount | number }}</p>
+        <p><strong>TOTAL: {{ total - totalDiscount | number }}</strong></p>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
