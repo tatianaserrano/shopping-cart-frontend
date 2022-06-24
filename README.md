@@ -21,7 +21,7 @@ npm start
 ```sh
 http://localhost:4200/
 ```
-5. Esta aplicación también se puede ver en el siguiente enlace: 
+Esta aplicación también se puede ver en el siguiente enlace: 
 
 
 Imágenes:
