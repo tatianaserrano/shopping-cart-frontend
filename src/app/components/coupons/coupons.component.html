@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="card" style="width: 18rem" *ngFor="let coupon of coupons">
+    <div class="card-body">
+      <h5 class="card-title">{{ coupon.code }}</h5>
+      <p class="card-text">
+        {{ coupon.description }}
+      </p>
+      <a class="btn btn-primary">Copiar cupón</a>
+    </div>
+  </div>
+</div>
