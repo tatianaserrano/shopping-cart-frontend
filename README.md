@@ -21,7 +21,7 @@ npm start
 ```sh
 http://localhost:4200/
 ```
-Esta aplicación también se puede ver en el siguiente enlace: 
+Esta aplicación también se puede ver en el siguiente enlace: https://meridian-cart-frontend.herokuapp.com/products
 
 
 Imágenes:
