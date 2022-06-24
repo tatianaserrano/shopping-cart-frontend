@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg" style="background-color: #ffc305;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">MiRopa.com</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Productos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Cupones</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Facturas</a>
+        </li>
+      </ul>
+
+      <div class="dropdown">
+        <span
+          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+        >
+          {{amount}}
+          <span class="visually-hidden">unread messages</span>
+        </span>
+        <img
+          src="../../../assets/cart.png"
+          class="d-flex cart"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        />
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" >
+          <li *ngFor="let item of cartList"><a class="dropdown-item">{{item.name | uppercase}} <strong>X{{item.amount}}</strong></a></li><hr>
+          <li *ngIf="cartList.length > 0"><a class="dropdown-item buy_button"><strong>COMPRAR</strong></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
