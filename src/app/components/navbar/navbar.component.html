@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg" style="background-color: #ffc305;">
+<nav class="navbar navbar-expand-lg" style="background-color: #ffc305">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">MiRopa.com</a>
     <button
@@ -15,7 +15,9 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/products">Productos</a>
+          <a class="nav-link active" aria-current="page" routerLink="/products"
+            >Productos</a
+          >
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/coupons">Cupones</a>
@@ -29,7 +31,7 @@
         <span
           class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
         >
-          {{amount}}
+          {{ amount }}
           <span class="visually-hidden">unread messages</span>
         </span>
         <img
@@ -38,11 +40,74 @@
           data-bs-toggle="dropdown"
           aria-expanded="false"
         />
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" >
-          <li *ngFor="let item of cartList"><a class="dropdown-item">{{item.name | uppercase}} <strong>X{{item.amount}}</strong></a></li><hr>
-          <li *ngIf="cartList.length > 0"><a class="dropdown-item buy_button"><strong>COMPRAR</strong></a></li>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li *ngFor="let item of cartList">
+            <a class="dropdown-item"
+              >{{ item.name | uppercase }}
+              <strong>X{{ item.amount }}</strong></a
+            >
+          </li>
+          <hr />
+          <li *ngIf="cartList.length > 0">
+            <a
+              class="dropdown-item buy_button"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+              ><strong>COMPRAR</strong></a
+            >
+          </li>
         </ul>
       </div>
     </div>
   </div>
 </nav>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="staticBackdrop"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Resumen</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <p *ngFor="let item of cartList">
+          {{ item.name | uppercase }} ${{ item.price | number }}
+          <strong>X{{ item.amount }}</strong>
+        </p>
+        <div class="mb-3">
+          <form [formGroup]="couponForm">
+            <input
+              type="email"
+              class="form-control"
+              id="exampleFormControlInput1"
+              placeholder="Aplicar CUPON descuento"
+              formControlName="coupon"
+            />
+          </form>
+          <button type="button" class="btn btn-primary" (click)="applyCoupon()">Aplicar</button>
+        </div>
+        <p><strong>TOTAL:</strong> {{ total | number }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cancelar
+        </button>
+        <button type="button" class="btn btn-primary" (click)="addPurchase()">Pagar</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -12,4 +12,8 @@ export class ProductsService {
   public getProducts(): Promise<any> {
     return this.http.get(`${environment.apiUrl}/products`).toPromise();
   }
+
+  public addPurchase(body: any): Promise<any> {
+    return this.http.post(`${environment.apiUrl}/purchase`, body).toPromise();
+  }
 }
