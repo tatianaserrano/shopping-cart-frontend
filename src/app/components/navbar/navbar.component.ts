@@ -35,27 +35,37 @@ export class NavbarComponent implements OnInit {
   }
 
   public async applyCoupon() {
-    const couponsList = await this.couponsService.getCoupons();
-    this.coupon = couponsList.find((coupon: any) => coupon.code === this.couponForm.value.coupon);
-    this.totalDiscount = this.total * this.coupon.percentage / 100;
-    this.total = this.total - this.totalDiscount
+    try{
+      const couponsList = await this.couponsService.getCoupons();
+      this.coupon = couponsList.find((coupon: any) => coupon.code === this.couponForm.value.coupon);
+      this.totalDiscount = this.total * this.coupon.percentage / 100;
+      this.total = this.total - this.totalDiscount
+    } catch(error){
+      console.log(error);
+      //redirect screen error
+    }
   }
 
   public async addPurchase() {
-    const body = {
-      idCoupon: this.coupon.id,
-      totalPurchase: this.total,
-      totalDiscount: this.totalDiscount,
-      productsList: this.cartList.map(product => {
-        return {
-          id: product.id,
-          amount: product.amount
-        }
-      })
+    try {
+      const body = {
+        idCoupon: this.coupon.id,
+        totalPurchase: this.total,
+        totalDiscount: this.totalDiscount,
+        productsList: this.cartList.map(product => {
+          return {
+            id: product.id,
+            amount: product.amount
+          }
+        })
+      }
+      await this.productsService.addPurchase(body);
+      window.location.assign('/congrats')
+      // this.router.navigateByUrl('/congrats');
+    } catch (error) {
+      console.log(error);
+      //redirect error
     }
-    await this.productsService.addPurchase(body);    
-    window.location.assign('/congrats')
-    // this.router.navigateByUrl('/congrats');
   }
 
 }

@@ -14,7 +14,12 @@ export class ProductsComponent implements OnInit {
   constructor(private readonly productsService: ProductsService, private readonly cartService: CartService) { }
 
   async ngOnInit(): Promise<void> {
-    this.products = await this.productsService.getProducts();
+    try{
+      this.products = await this.productsService.getProducts();
+    }catch(error){
+      console.log(error);
+      //redirect screen error
+    }
   }
 
   public addToCart(product: any) {
